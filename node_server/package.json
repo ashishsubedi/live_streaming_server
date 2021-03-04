@@ -1,0 +1,23 @@
+{
+  "name": "live_streaming_server",
+  "version": "1.0.0",
+  "description": "Created automatically using create-github",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashishsubedi/live_streaming_server.git"
+  },
+  "author": "Ashish Subedi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashishsubedi/live_streaming_server/issues"
+  },
+  "homepage": "https://github.com/ashishsubedi/live_streaming_server#readme",
+  "dependencies": {
+    "node-media-server": "^2.2.4",
+    "redis": "^3.0.2"
+  }
+}

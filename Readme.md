@@ -15,3 +15,4 @@ This project is platform where users can live stream using RTMP protocol. Tested
 
 ## NOTE
 All the urls are hardcoded for now.
+You can monitor your stream in <code> localhost:8000/admin </code>

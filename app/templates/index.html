@@ -10,6 +10,44 @@
 <body>
     <div id="container">
         <div id="streams"></div>
+    
     </div>
+    <script>
+        let streamsContainer = document.getElementById('streams')
+
+        fetch('http://localhost:8000/api/streams').then(res=>{
+            return res.json()
+        })
+        .then(
+            data=>{
+                console.log(data)
+                if (data.live != undefined){
+                    streamsContainer.innerHTML = ''
+                    Object.keys(data.live).forEach(streamKey => {
+                     
+                        let subs = data.live[streamKey].subscribers.length
+                        console.log(streamKey,subs)
+                        
+                        streamsContainer.innerHTML += `
+                            <form action="/stream/${streamKey}">
+                                <input type="submit" value="${streamKey}\n${subs} watching"/>
+
+                            </form>
+                        
+                        `
+                    });
+
+                }else{
+                    streamsContainer.innerHTML = '<h1> NO STREAMS FOUND </h1>'
+                }
+            }
+
+        )
+        .catch(
+            err=>{
+                console.error(err)
+            }
+        )
+    </script>
 </body>
 </html>

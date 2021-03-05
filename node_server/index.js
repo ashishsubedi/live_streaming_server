@@ -49,7 +49,6 @@ nms.on('prePublish', (id, StreamPath, args) => {
   const stream_key = getStreamKeyFromStreamPath(StreamPath)
 
   client.get(stream_key,(err,reply)=>{
-    console.log(reply.id,args.id);
     if (err) throw err;
     let session = nms.getSession(id);
 
@@ -68,18 +67,11 @@ nms.on('prePublish', (id, StreamPath, args) => {
   
 });
 
- 
+
 nms.on('donePublish', (id, StreamPath, args) => {
   console.log('[NodeEvent on donePublish]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
   const stream_key = getStreamKeyFromStreamPath(StreamPath)
-  client.get(stream_key,(err,reply)=>{
-    if (err) throw err;
-    if (reply == null) return;
-    console.log(reply);
-    let session = nms.getSession(id);
-    console.log("SESSION",session)
-    // session.reject();
-  })
+  client.del(stream_key)
 });
 
 

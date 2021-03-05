@@ -24,7 +24,7 @@
                 if (data.live != undefined){
                     streamsContainer.innerHTML = ''
                     Object.keys(data.live).forEach(streamKey => {
-                     
+
                         let subs = data.live[streamKey].subscribers.length
                         console.log(streamKey,subs)
                         
